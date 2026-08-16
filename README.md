@@ -1,6 +1,28 @@
 # 土豆 AI 短剧
 
+> API Key 申请地址：[https://api.aitudou.net/](https://api.aitudou.net/)
+
 一个面向短剧创作的本地桌面工作台，覆盖剧本生成、角色/场景/道具资产、分镜设计、视频碎片和资源管理。
+
+## 效果预览
+
+### 首页
+
+<p align="center">
+  <img src="./public/demo/home.png" alt="土豆 AI 短剧首页" width="100%" />
+</p>
+
+### 风格库
+
+<p align="center">
+  <img src="./public/demo/style-library.png" alt="风格库与风格圣经" width="100%" />
+</p>
+
+### 分镜工作台
+
+<p align="center">
+  <img src="./public/demo/storyboard.jpg" alt="分镜工作台" width="100%" />
+</p>
 
 本仓库是纯净开源版：
 
@@ -25,7 +47,7 @@
 
 应用每次启动会显示算力服务提示。点击“前往申请”会使用系统默认浏览器打开：
 
-[https://api.aitudou.net](https://api.aitudou.net)
+[https://api.aitudou.net/](https://api.aitudou.net/)
 
 申请后在应用的“全局设置”中填写所需 API Key。当前设置页支持阿里百炼、RunningHub、GPT Image 和 Seedance 等服务；具体需要哪些 Key 取决于你选择的生成服务。
 
