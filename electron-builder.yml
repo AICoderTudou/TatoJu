@@ -1,0 +1,22 @@
+appId: com.tatoju.duanju-agent
+productName: 土豆AI短剧
+directories:
+  output: release
+  buildResources: build
+files:
+  - out/**/*
+  - package.json
+# 原生模块必须从 asar 解包，否则运行时找不到 .node 绑定
+asarUnpack:
+  - node_modules/better-sqlite3/**
+  - node_modules/sharp/**
+  - node_modules/@img/**
+win:
+  target:
+    - nsis
+  icon: build/icon.png
+  artifactName: ${productName}-${version}-setup.${ext}
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  perMachine: false

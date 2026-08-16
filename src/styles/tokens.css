@@ -1,0 +1,354 @@
+/* 设计系统 V2 —— 纯黑底 + 霓虹绿主色（参考「熊猫漫剧」暗黑风）。
+   变量名沿用旧名，改值即可全局换肤。 */
+:root {
+  --bg: #060708;
+  --surface: #0c0e10;
+  --panel: #14181b;
+  --raised: #1c2024;
+  --line: #272d33;
+  --hair: rgba(255, 255, 255, 0.06);
+  --text: #f3f6f8;
+  --dim: #9aa3ab;
+  --muted: #5e666d;
+
+  /* 主强调：霓虹绿 + 渐变 + 辉光 */
+  --accent: #34e08b;
+  --accent-2: #22c873;
+  --accent-grad: linear-gradient(135deg, #4ff0a3 0%, #22c873 100%);
+  --accent-soft: rgba(52, 224, 139, 0.14);
+  --accent-glow: 0 0 0 1px rgba(52, 224, 139, 0.35), 0 8px 28px rgba(34, 200, 115, 0.28);
+  --accent-on: #041610;
+  /* 辅助信息色（青绿） */
+  --teal: #2dd4bf;
+
+  --st-queued: #5e666d;
+  --st-running: #2dd4bf;
+  --st-success: #34e08b;
+  --st-failed: #ff5d5d;
+  --st-warning: #ffb340;
+
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+
+  --font-display: "PingFang SC", "Microsoft YaHei UI", "Noto Sans SC", system-ui, sans-serif;
+  --font-sans: "PingFang SC", "Microsoft YaHei UI", "Noto Sans SC", system-ui, sans-serif;
+  --font-mono: "Cascadia Code", "JetBrains Mono", "Consolas", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(52, 224, 139, 0.46) rgba(12, 14, 16, 0.72);
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(52, 224, 139, 0.72), rgba(45, 212, 191, 0.44));
+  border-radius: 999px;
+  border: 3px solid rgba(12, 14, 16, 0.96);
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(79, 240, 163, 0.95), rgba(45, 212, 191, 0.7));
+  border-color: rgba(12, 14, 16, 0.9);
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(12, 14, 16, 0.72);
+}
+
+*::-webkit-scrollbar-corner {
+  background: var(--bg);
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  /* 桌面应用：默认禁止选中 UI 文本（避免 Ctrl+A / 鼠标框选高亮界面文字） */
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* 需要选中/复制的内容放行：输入区、可编辑区，以及显式标记 .selectable 的元素 */
+input,
+textarea,
+[contenteditable="true"],
+.selectable,
+.selectable * {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+button {
+  font-family: inherit;
+}
+
+.label {
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+  font-size: 11px;
+  color: var(--dim);
+}
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+.h-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+  font-weight: 700;
+}
+
+/* 按钮 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  background: var(--raised);
+  color: var(--text);
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.16s ease, border-color 0.16s ease, transform 0.12s ease, opacity 0.16s ease,
+    box-shadow 0.16s ease;
+  white-space: nowrap;
+}
+.btn:hover {
+  background: #232a30;
+  border-color: #353d45;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.btn.primary {
+  background: var(--accent-grad);
+  border: none;
+  color: var(--accent-on);
+  font-weight: 700;
+}
+.btn.primary:hover {
+  box-shadow: var(--accent-glow);
+  background: var(--accent-grad);
+}
+.btn.ghost {
+  background: transparent;
+}
+.btn.danger {
+  border-color: #5a2b2b;
+  color: var(--st-failed);
+}
+.btn.danger:hover {
+  background: #2a1717;
+  border-color: #7a3535;
+}
+.btn.sm {
+  height: 28px;
+  padding: 0 10px;
+  font-size: 12px;
+  border-radius: 6px;
+}
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* 输入 */
+input,
+textarea,
+select {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-radius: var(--r-sm);
+  padding: 9px 11px;
+  font-family: inherit;
+  font-size: 13px;
+  width: 100%;
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted);
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* 卡片/面板 */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+}
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: var(--sp-4);
+}
+
+/* 状态点 */
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot.queued {
+  background: var(--st-queued);
+}
+.dot.running {
+  background: var(--st-running);
+  box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.6);
+  animation: tally 1.4s ease-out infinite;
+}
+.dot.success {
+  background: var(--st-success);
+}
+.dot.failed {
+  background: var(--st-failed);
+}
+.dot.canceled {
+  background: var(--muted);
+}
+@keyframes tally {
+  0% {
+    box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 7px rgba(45, 212, 191, 0);
+  }
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 11px;
+  color: var(--dim);
+}
+
+/* 骨架屏：加载占位，避免空白闪烁 */
+.skeleton {
+  background: linear-gradient(90deg, var(--panel) 25%, var(--raised) 37%, var(--panel) 63%);
+  background-size: 400% 100%;
+  animation: skeleton-shimmer 1.4s ease infinite;
+  border-radius: var(--r-sm);
+}
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.scroll {
+  overflow: auto;
+}
+.scroll::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(52, 224, 139, 0.72), rgba(45, 212, 191, 0.44));
+  border-radius: 999px;
+  border: 3px solid rgba(12, 14, 16, 0.96);
+  background-clip: padding-box;
+}
+.scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(79, 240, 163, 0.95), rgba(45, 212, 191, 0.7));
+  background-clip: padding-box;
+}
+.scroll::-webkit-scrollbar-track {
+  background: rgba(12, 14, 16, 0.72);
+}
+
+/* 右侧抽屉进出动画（任务中心 / 资源详情）：遮罩淡入 + 面板右滑 */
+.drawer-right-enter-active {
+  transition: opacity 0.26s ease;
+}
+.drawer-right-leave-active {
+  transition: opacity 0.2s ease;
+}
+.drawer-right-enter-from,
+.drawer-right-leave-to {
+  opacity: 0;
+}
+.drawer-right-enter-active .drawer {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.drawer-right-leave-active .drawer {
+  transition: transform 0.2s ease;
+}
+.drawer-right-enter-from .drawer,
+.drawer-right-leave-to .drawer {
+  transform: translateX(100%);
+}
+
+/* 融合式顶栏：整条可拖动移动窗口，内部交互元素不可拖 */
+.app-dragbar {
+  -webkit-app-region: drag;
+}
+.app-dragbar button,
+.app-dragbar a,
+.app-dragbar input,
+.app-dragbar select,
+.app-dragbar .clickable {
+  -webkit-app-region: no-drag;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
