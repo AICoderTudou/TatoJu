@@ -9,19 +9,19 @@
 ### 首页
 
 <p align="center">
-  <img src="./public/demo/home.png" alt="土豆 AI 短剧首页" width="100%" />
+  <img src="https://github.com/AICoderTudou/TatoJu/blob/main/demo/ScreenShot_2026-08-16_131520_716.png" alt="土豆 AI 短剧首页" width="100%" />
 </p>
 
 ### 风格库
 
 <p align="center">
-  <img src="./public/demo/style-library.png" alt="风格库与风格圣经" width="100%" />
+  <img src="https://github.com/AICoderTudou/TatoJu/blob/main/demo/ScreenShot_2026-08-16_131520_716.png" alt="风格库与风格圣经" width="100%" />
 </p>
 
 ### 分镜工作台
 
 <p align="center">
-  <img src="./public/demo/storyboard.jpg" alt="分镜工作台" width="100%" />
+  <img src="https://github.com/AICoderTudou/TatoJu/blob/main/demo/storyboard.jpg" alt="分镜工作台" width="100%" />
 </p>
 
 本仓库是纯净开源版：
