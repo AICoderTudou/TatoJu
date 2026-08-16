@@ -1,3 +1,8 @@
+## API Key
+现在应用默认是RH 和阿里百炼。所以大家可以更换为[https://api.aitudou.net/](https://api.aitudou.net/) 价格2-5折！
+
+申请后在应用的“全局设置”中填写所需 API Key。当前设置页支持阿里百炼、RunningHub、GPT Image 和 Seedance 等服务；具体需要哪些 Key 取决于你选择的生成服务。
+
 # 土豆 AI 短剧
 
 > API Key 申请地址：[https://api.aitudou.net/](https://api.aitudou.net/)
@@ -43,13 +48,6 @@
 - 项目资源中心、图片预览与下载。
 - 全局模型、生成服务、默认画幅和并发数设置。
 
-## API Key
-
-应用每次启动会显示算力服务提示。点击“前往申请”会使用系统默认浏览器打开：
-
-[https://api.aitudou.net/](https://api.aitudou.net/)
-
-申请后在应用的“全局设置”中填写所需 API Key。当前设置页支持阿里百炼、RunningHub、GPT Image 和 Seedance 等服务；具体需要哪些 Key 取决于你选择的生成服务。
 
 ## 本地运行
 
